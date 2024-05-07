@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test JavaScript</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/prism.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="section">
+        <a class="back-button" href="/beginner/index.html"> Înapoi</a>
+        <h1>Test JavaScript</h1>
+        <p class="caption">Încercați-vă cunoștințele. Succes!</p>
+        <hr class="separator" />
+        <form id="testForm">
+          <fieldset>
+            <legend class="question">Întrebarea 1:</legend>
+            <p class="question-text">
+              Care este rezultatul afișat în consolă pentru variabila
+              <code>firstVar</code>?
+            </p>
+            <pre><code class="lang-javascript">var firstVar = <span class="hljs-string">"Hello World"</span><span class="hljs-comment">;</span>
+let secondVar = <span class="hljs-string">"I 'm Heisenberg"</span><span class="hljs-comment">;</span>
+const ID_PERSON = <span class="hljs-string">"28934289"</span><span class="hljs-comment">;</span>
+              
+console.log(firstVar)<span class="hljs-comment">;</span>
+console.log(secondVar)<span class="hljs-comment">;</span>
+console.log(ID_PERSON)<span class="hljs-comment">;</span>
+              </code></pre>
+            <input
+              type="radio"
+              name="q1"
+              value="a"
+              class="answer"
+              id="q01a"
+            /><label for="q01a">Hello Word</label><br />
+            <input
+              type="radio"
+              name="q1"
+              value="b"
+              class="answer"
+              id="q01b"
+            /><label>I'm Heisenberg</label>
+            <br />
+            <input
+              type="radio"
+              name="q1"
+              value="c"
+              class="answer"
+              id="q01c"
+            /><label for="q01c">28934289</label><br />
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 2:</legend>
+            <p class="question-text">
+              Care dintre următoarele variabile sunt declarate corect?
+            </p>
+            <input type="checkbox" name="q2" value="a" id="q02a" />
+            <label for="q02a">firstVariable = "Salut Lume"</label> <br />
+            <input type="checkbox" name="q2" value="b" id="q02b" /><label
+              for="q02b"
+              >let prenume = 'Victoria', nume = 'Chetraru', vârsta = 27;</label
+            >
+            <br />
+            <input type="checkbox" name="q2" value="c" id="q02c" /><label
+              for="q02c"
+              >let snake_case;</label
+            ><br />
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 3:</legend>
+            <p class="question-text">
+              Care sunt cele 6 tipuri de date primitive în JavaScript?
+            </p>
+            <input type="radio" name="q3" value="a" class="answer" id="q1a" />
+            <label for="q1a">
+              string, number, undefined, null, boolean, symbol</label
+            ><br />
+            <input type="radio" name="q3" value="b" class="answer" id="q1b" />
+            <label for="q1b">
+              text, integer, float, undefined, null, boolean</label
+            ><br />
+            <input type="radio" name="q3" value="c" class="answer" id="q1c" />
+            <label for="q1c">
+              char, float, undefined, void, boolean, symbol</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 4:</legend>
+            <p class="question-text">
+              Care dintre următoarele afirmații este adevărată despre tipul de
+              date "boolean" în JavaScript?
+            </p>
+            <input type="radio" name="q4" value="a" class="answer" id="q2a" />
+            <label for="q2a">
+              Tipul boolean poate stoca doar valorile true și false</label
+            ><br />
+            <input type="radio" name="q4" value="b" class="answer" id="q2b" />
+            <label for="q2b">
+              Tipul boolean poate stoca orice valori numerice</label
+            ><br />
+            <input type="radio" name="q4" value="c" class="answer" id="q2c" />
+            <label for="q2c">
+              Tipul boolean poate stoca doar valoarea true</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 5:</legend>
+            <p class="question-text">
+              Ce reprezintă operatorii unari și binari în JavaScript?
+            </p>
+            <input type="radio" name="q5" value="a" class="answer" id="q3a" />
+            <label for="q3a">
+              Operatorii unari au un singur operand, în timp ce operatorii
+              binari au doi operanzi.</label
+            ><br />
+            <input type="radio" name="q5" value="b" class="answer" id="q3b" />
+            <label for="q3b">
+              Operatorii unari și binari sunt echivalenți în JavaScript.</label
+            ><br />
+            <input type="radio" name="q5" value="c" class="answer" id="q3c" />
+            <label for="q3c">
+              Operatorii unari sunt aceia care operează pe text, în timp ce
+              operatorii binari operează pe numere.</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 6:</legend>
+            <p class="question-text">
+              Care este rezultatul afișat în consolă pentru variabila
+              <code>modd</code>?
+            </p>
+            <pre><code class="lang-javascript">// Operatori aritmetici
+let a = 30;
+let b = 50;
+
+// Modulul
+let modd = b % a
+console.log(`modd: ${modd}`)</code></pre>
+            <input type="radio" name="q6" value="a" class="answer" id="q4a" />
+            <label for="q4a"> 20</label><br />
+            <input type="radio" name="q6" value="b" class="answer" id="q4b" />
+            <label for="q4b"> 30</label><br />
+            <input type="radio" name="q6" value="c" class="answer" id="q4c" />
+            <label for="q4c"> 0</label>
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 7:</legend>
+            <p class="question-text">
+              Ce face operatorul <code>===</code> în JavaScript?
+            </p>
+            <input type="radio" name="q7" value="a" class="answer" id="q5a" />
+            <label for="q5a">
+              Verifică egalitatea valorilor, fără a ține cont de tipul
+              acestora.</label
+            ><br />
+            <input type="radio" name="q7" value="b" class="answer" id="q5b" />
+            <label for="q5b">
+              Verifică egalitatea valorilor și a tipului de date.</label
+            ><br />
+            <input type="radio" name="q7" value="c" class="answer" id="q5c" />
+            <label for="q5c">
+              Este un operator de atribuire folosit pentru inițializarea
+              variabilelor.</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 8:</legend>
+            <p class="question-text">
+              Ce face declarația <code>if</code> în JavaScript?
+            </p>
+            <input type="radio" name="q8" value="a" class="answer" id="q6a" />
+            <label for="q6a">
+              Evaluează o condiție și, dacă rezultatul este <code>true</code>,
+              execută o bucată de cod.</label
+            ><br />
+            <input type="radio" name="q8" value="b" class="answer" id="q6b" />
+            <label for="q6b">
+              Returnează întotdeauna <code>true</code> și execută o bucată de
+              cod indiferent de condiție.</label
+            ><br />
+            <input type="radio" name="q8" value="c" class="answer" id="q6c" />
+            <label for="q6c">
+              Evaluează o condiție, iar dacă rezultatul este <code>false</code>,
+              execută o bucată de cod.</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 9:</legend>
+            <p class="question-text">
+              Care este rezultatul afișat în consolă pentru variabila
+              <code>counter</code> după execuția următorului cod?
+            </p>
+            <pre><code class="language-javascript">let counter = 5;
+        if (counter == 6) {
+            console.log("Am ajuns la 6");
+        } else {
+            console.log("Mai avem ceva");
+        }</code></pre>
+            <input type="radio" name="q9" value="a" class="answer" id="q7a" />
+            <label for="q7a"> "Am ajuns la 6"</label><br />
+            <input type="radio" name="q9" value="b" class="answer" id="q7b" />
+            <label for="q7b"> "Mai avem ceva"</label><br />
+            <input type="radio" name="q9" value="c" class="answer" id="q7c" />
+            <label for="q7c"> "Am ajuns la 5"</label>
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 10:</legend>
+            <p class="question-text">
+              Ce face declarația <code>if ... else</code> în JavaScript?
+            </p>
+            <input type="radio" name="q10" value="a" class="answer" id="q8a" />
+            <label for="q8a">
+              Evaluează o serie de condiții în ordine și execută prima condiție
+              care este adevărată, ignorând restul.</label
+            ><br />
+            <input type="radio" name="q10" value="b" class="answer" id="q8b" />
+            <label for="q8b">
+              Evaluează o serie de condiții în ordine și execută toate
+              condițiile adevărate în cascada.</label
+            ><br />
+            <input type="radio" name="q10" value="c" class="answer" id="q8c" />
+            <label for="q8c">
+              Evaluează o serie de condiții în ordine și, dacă niciuna nu este
+              adevărată, execută blocul de cod din ramura
+              <code>else</code>.</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 11:</legend>
+            <p class="question-text">
+              Care este sintaxa principală a buclei <code>for</code> în
+              JavaScript?
+            </p>
+            <input type="radio" name="q11" value="a" class="answer" id="q9a" />
+            <label for="q9a">
+              for (initialExpression; conditionExpression;
+              incrementExpression)</label
+            ><br />
+            <input type="radio" name="q11" value="b" class="answer" id="q9b" />
+            <label for="q9b">
+              for (conditionExpression; incrementExpression;
+              initialExpression)</label
+            ><br />
+            <input type="radio" name="q11" value="c" class="answer" id="q9c" />
+            <label for="q9c">
+              for (incrementExpression; initialExpression;
+              conditionExpression)</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 12:</legend>
+            <p class="question-text">
+              Care este diferența dintre bucla <code>while</code> și bucla
+              <code>do...while</code> în JavaScript?
+            </p>
+            <input type="radio" name="q12" value="a" class="answer" id="q10a" />
+            <label for="q10a">
+              Bucla <code>while</code> nu este utilizată în JavaScript.</label
+            ><br />
+            <input type="radio" name="q12" value="b" class="answer" id="q10b" />
+            <label for="q10b">
+              Bucla <code>do...while</code> execută întotdeauna cel puțin o dată
+              codul în buclă, în timp ce bucla <code>while</code> poate să nu
+              execute deloc codul dacă condiția inițială este falsă.</label
+            ><br />
+            <input type="radio" name="q12" value="c" class="answer" id="q10c" />
+            <label for="q10c">
+              Bucla <code>do...while</code> este utilizată pentru a itera peste
+              proprietățile unui obiect, în timp ce bucla
+              <code>while</code> este utilizată pentru a itera peste elementele
+              unei liste.</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 13:</legend>
+            <p class="question-text">
+              Ce face instrucțiunea <code>switch</code> în JavaScript?
+            </p>
+            <input type="radio" name="q13" value="a" class="answer" id="q11a" />
+            <label for="q11a">
+              Instrucțiunea <code>switch</code> compară o valoare cu mai multe
+              variante și execută codul corespunzător primei variante care se
+              potrivește.</label
+            ><br />
+            <input type="radio" name="q13" value="b" class="answer" id="q11b" />
+            <label for="q11b">
+              Instrucțiunea <code>switch</code> este similară cu o serie de
+              instrucțiuni <code>if</code> care se execută în cascada, evaluând
+              fiecare condiție pe rând și executând codul primului bloc care
+              îndeplinește condiția.</label
+            ><br />
+            <input type="radio" name="q13" value="c" class="answer" id="q11c" />
+            <label for="q11c">
+              Instrucțiunea <code>switch</code> este folosită pentru a itera
+              peste proprietățile unui obiect în JavaScript.</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 14:</legend>
+            <p class="question-text">
+              Ce este o funcție în JavaScript și care este rolul său în
+              programare?
+            </p>
+            <input type="radio" name="q14" value="a" class="answer" id="q12a" />
+            <label for="q12a">
+              O funcție este o bucată de cod care poate fi reutilizată în
+              întregul program pentru a efectua anumite acțiuni.</label
+            ><br />
+            <input type="radio" name="q14" value="b" class="answer" id="q12b" />
+            <label for="q12b">
+              O funcție este o variabilă care conține o valoare specifică sau un
+              obiect în JavaScript.</label
+            ><br />
+            <input type="radio" name="q14" value="c" class="answer" id="q12c" />
+            <label for="q12c">
+              O funcție este un tip de date în JavaScript folosit pentru a stoca
+              informații.</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 15:</legend>
+            <p class="question-text">
+              Care este diferența dintre o declarație de funcție și o expresie
+              de funcție în JavaScript?
+            </p>
+            <input type="radio" name="q15" value="a" class="answer" id="q13a" />
+            <label for="q13a">
+              Nu există diferențe între cele două; sunt două moduri diferite de
+              a defini aceeași funcție.</label
+            ><br />
+            <input type="radio" name="q15" value="b" class="answer" id="q13b" />
+            <label for="q13b">
+              O declarație de funcție este o funcție definită folosind cuvântul
+              cheie "function", în timp ce o expresie de funcție este o funcție
+              atribuită unei variabile.</label
+            ><br />
+            <input type="radio" name="q15" value="c" class="answer" id="q13c" />
+            <label for="q13c">
+              O declarație de funcție poate fi apelată înainte de a fi definită,
+              în timp ce o expresie de funcție nu poate.</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebarea 16:</legend>
+            <p class="question-text">
+              Cum se poate accesa o variabilă externă în interiorul unei funcții
+              în JavaScript?
+            </p>
+            <input type="radio" name="q16" value="a" class="answer" id="q14a" />
+            <label for="q14a">
+              Variabilele externe nu pot fi accesate în interiorul unei funcții
+              în JavaScript.</label
+            ><br />
+            <input type="radio" name="q16" value="b" class="answer" id="q14b" />
+            <label for="q14b">
+              Variabilele externe pot fi accesate direct în interiorul unei
+              funcții în JavaScript, fără a fi necesară nicio instrucțiune
+              specială.</label
+            ><br />
+            <input type="radio" name="q16" value="c" class="answer" id="q14c" />
+            <label for="q14c">
+              Variabilele externe pot fi accesate în interiorul unei funcții în
+              JavaScript folosind cuvântul cheie "this".</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend class="question">Întrebare 17:</legend>
+            <p class="question-text">
+              Cum sunt definite obiectele în JavaScript?
+            </p>
+            <input type="radio" name="q17" value="a" class="answer" id="q15a" />
+            <label for="q15a">
+              Prin utilizarea parantezelor <code>{}</code> sau a constructorului
+              <code>Object</code>.</label
+            ><br />
+            <input type="radio" name="q17" value="b" class="answer" id="q15b" />
+            <label for="q15b">
+              Prin utilizarea cuvântului cheie <code>class</code> și a
+              constructorului de clasă.</label
+            ><br />
+            <input type="radio" name="q17" value="c" class="answer" id="q15c" />
+            <label for="q15c">
+              Prin utilizarea cuvântului cheie <code>struct</code> și a
+              constructorului de structură.</label
+            >
+          </fieldset>
+
+          <fieldset>
+            <legend class="question">Întrebare 18:</legend>
+            <p class="question-text">
+              Cum puteți accesa o proprietate a unui obiect în JavaScript?
+            </p>
+            <input type="radio" name="q18" value="a" class="answer" id="q16a" />
+            <label for="q16a">
+              Folosind funcția <code>get()</code> și specificând numele
+              proprietății.</label
+            ><br />
+            <input type="radio" name="q18" value="b" class="answer" id="q16b" />
+            <label for="q16b">
+              Prin folosirea operatorului <code>.</code> și specificând numele
+              proprietății.</label
+            ><br />
+            <input type="radio" name="q18" value="c" class="answer" id="q16c" />
+            <label for="q16c">
+              Prin utilizarea funcției <code>getProperty()</code> și specificând
+              numele proprietății.</label
+            >
+          </fieldset>
+
+          <fieldset>
+            <legend class="question">Întrebare 19:</legend>
+            <p class="question-text">
+              Ce se întâmplă când încercați să accesați o proprietate
+              inexistentă a unui obiect în JavaScript?
+            </p>
+            <input type="radio" name="q19" value="a" class="answer" id="q17a" />
+            <label for="q17a">
+              Se generează o excepție de tipul
+              <code>PropertyError</code>.</label
+            ><br />
+            <input type="radio" name="q19" value="b" class="answer" id="q17b" />
+            <label for="q17b">
+              Se returnează <code>null</code> pentru valoarea proprietății
+              inexistente.</label
+            ><br />
+            <input type="radio" name="q19" value="c" class="answer" id="q17c" />
+            <label for="q17c">
+              Se returnează <code>undefined</code> pentru valoarea proprietății
+              inexistente.</label
+            >
+          </fieldset>
+
+          <fieldset>
+            <legend class="question">Întrebare 20:</legend>
+            <p class="question-text">
+              Cum puteți adăuga o nouă proprietate la un obiect existent în
+              JavaScript?
+            </p>
+            <input type="radio" name="q20" value="a" class="answer" id="q18a" />
+            <label for="q18a">
+              Prin utilizarea funcției <code>setProperty()</code> și specificând
+              numele și valoarea proprietății noi.</label
+            ><br />
+            <input type="radio" name="q20" value="b" class="answer" id="q18b" />
+            <label for="q18b">
+              Prin atribuirea directă a unei valori unice cu un nou nume de
+              proprietate.</label
+            ><br />
+            <input type="radio" name="q20" value="c" class="answer" id="q18c" />
+            <label for="q18c">
+              Prin utilizarea operatorului <code>+</code> și concatenarea
+              numelui și valorii proprietății noi.</label
+            >
+          </fieldset>
+          <!-- Restul întrebărilor și răspunsurilor -->
+          <input type="submit" value="Trimite" class="submit-button" />
+        </form>
+      </div>
+    </div>
+    <script src="/prism.js"></script>
+    <script src="/test/index.js"></script>
+  </body>
+</html>

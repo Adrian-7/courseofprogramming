@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f2f6ff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#2B2830"
+    />
+    <title>Funciones</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../prism.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="section">
+        <a class="back-button" href="/beginner/index.html"> Înapoi</a>
+        <h1>Funcții</h1>
+        <p class="caption">Funcții clasice în JavaScript</p>
+        <hr class="separator" />
+
+        <p>
+          Funcțiile sunt unul dintre cele mai importante elemente în aproape
+          orice limbaj de programare. O funcție vă permite să
+          <strong
+            >definiți o serie de acțiuni care pot fi reutilizate în întregul
+            cod</strong
+          >. Acest lucru se datorează faptului că o funcție poate fi apelată de
+          câte ori doriți pe parcursul unui program.
+        </p>
+        <p>
+          Am văzut deja câteva funcții de-a lungul cursului, cum ar fi
+          <code>console.log()</code>, <code>alert()</code> o
+          <code>prompt()</code>. Până la urmă aceste funcții sunt definite
+          undeva și le putem apela atunci când avem nevoie de ele.
+        </p>
+        <h2 id="definici-n">Definiție</h2>
+        <p>
+          O funcție este declarată cu cuvântul rezervat
+          <code>function</code> urmată de următoarele:
+        </p>
+        <ol>
+          <li>Numele funcției.</li>
+          <li>
+            O listă de parametri ai funcției, delimitați prin paranteze și
+            despărțiți prin virgule.
+          </li>
+          <li>
+            Corpul funcției, delimitat de acolade <code>{ ... }</code> cu
+            posibilitatea de a returna o valoare cu <code>return</code>
+          </li>
+        </ol>
+        <pre><code class="lang-pseudocode"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">name</span><span class="hljs-params">(parameter1, parameter2)</span> </span>{
+    ...body...
+}
+</code></pre>
+        <p>În JavaScript ar fi cam așa:</p>
+        <pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span></span> square(<span class="hljs-keyword">number</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">number</span> * <span class="hljs-keyword">number</span>
+}
+</code></pre>
+        <h2 id="function-expressions">Expresiile funcției</h2>
+        <p>
+          În plus de forma menționată sus, funcțiile pot crea printr-o
+          <strong>expresie de funcție</strong>. Aceste funcții
+          <strong>pot fi anonime</strong>, nu pot avea un nume, dar pot fi
+          atribuite variabilelor. Este metoda este foarte utilă pentru a trece
+          funcții ca argumente. Astfel, la diferența dintre o
+          <code>expresie a funcției</code> și o
+          <code>declarație de funcție</code>, este cea mai recentă declarație
+          într-o manieră normală și apoi pot fi apelate invocarea definiției în
+          timp ce primele trebuie să fie alocate unei variabile pentru a putea
+          fi instanțe.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-comment">// Expresia functiei</span>
+<span class="hljs-keyword">const</span> square = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number</span>) </span>{ <span class="hljs-keyword">return</span> number * number }
+<span class="hljs-keyword">var</span> x = square(<span class="hljs-number">4</span>) <span class="hljs-comment">// x primește valoarea 16</span>
+
+<span class="hljs-comment">// Funcția are parametru</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">map</span>(<span class="hljs-params">f, a</span>) </span>{
+  <span class="hljs-keyword">let</span> result = []; <span class="hljs-comment">// Crează un nou Array</span>
+  <span class="hljs-keyword">let</span> i; <span class="hljs-comment">// Declarează variabile</span>
+  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i != a.length; i++)
+    result[i] = f(a[i]);
+  <span class="hljs-keyword">return</span> result;
+}
+<span class="hljs-keyword">const</span> f = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{
+   <span class="hljs-keyword">return</span> x * x * x;
+}
+<span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>];
+<span class="hljs-keyword">let</span> cube = map(f,numbers);
+<span class="hljs-built_in">console</span>.log(cube);
+</code></pre>
+        <h2 id="paso-por-valor-o-referencia">
+          Treceți prin valoare sau referință
+        </h2>
+        <p>
+          Toți parametrii
+          <strong>de tipuri non-primitive</strong> (obiecte, matrice, funcții)
+          în JavaScript sunt <strong>trecuți prin referință</strong>. Aceasta
+          înseamnă că dacă modificați valoarea în interiorul unei funcții,
+          aceasta se va schimba și în afara acesteia și este o greșeală foarte
+          frecventă făcută în programare.
+        </p>
+        <p>
+          Vizual, puteți diferenția transmiterea parametrilor de valoare și de
+          referință cu acest gif:
+        </p>
+        <p>
+          <img
+            class="container-image"
+            src="https://www.mathwarehouse.com/programming/images/pass-by-reference-vs-pass-by-value-animation.gif"
+            alt="Value vs referenc"
+          />
+        </p>
+        <p>
+          După cum putem vedea, la trecerea prin referință, dacă modificăm
+          valoarea internă în funcție, aceasta se va modifica în variabila
+          externă, totuși dacă o modificăm la trecerea variabilei după valoare,
+          nu se modifică în variabila externă.
+        </p>
+        <p>Acest lucru poate fi văzut și în cod:</p>
+        <pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeValue</span>(<span class="hljs-params">object1</span>) </span>{
+    object1.brand = <span class="hljs-string">'Samsung'</span>;
+    object1.model = <span class="hljs-string">'Galaxy'</span>;
+}
+
+<span class="hljs-keyword">var</span> myPhone = {<span class="hljs-attr">brand</span>: <span class="hljs-string">'Apple'</span>, <span class="hljs-attr">model</span>: <span class="hljs-string">'iPhone'</span>, <span class="hljs-attr">year</span>: <span class="hljs-number">2020</span>};
+<span class="hljs-keyword">var</span> x, y;
+
+x = myPhone.brand; <span class="hljs-comment">// x primește valoarea "Apple"</span>
+<span class="hljs-built_in">console</span>.log(x);
+
+changeValue(myPhone);
+y = myPhone.brand; <span class="hljs-comment">// y primește valoarea "Samsung"</span>
+<span class="hljs-built_in">console</span>.log(y);
+</code></pre>
+        <h2 id="variables-locales-y-variables-globales">
+          Variabile Locale și Variabile Globale
+        </h2>
+        <p>
+          Una variable declarada en una función es solo visible dentro de esa
+          función, pero dentro de las funciones se puede acceder a variables
+          externas. Además, si se declara una variable interna de una función
+          con el nombre de una variable externa, está
+          <strong>hará sombra</strong> a la variable exterior.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-keyword">let</span> outerVariable = <span class="hljs-string">"Sunt o variabilă exterioară"</span>;
+<span class="hljs-keyword">let</span> otherVariable = <span class="hljs-string">"Sunt o variabilă exterioară"</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayMessage</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">let</span> innerVariable = <span class="hljs-string">"Sunt o variabilă interioară"</span>;
+
+    <span class="hljs-built_in">console</span>.log(innverVariable);
+    <span class="hljs-built_in">console</span>.log(outerVariable);
+
+    <span class="hljs-keyword">let</span> otherVariable = <span class="hljs-string">"Eu definesc o variabilă interioară"</span>;
+    <span class="hljs-built_in">console</span>.log(otherVariable);
+}
+
+displayMessage();
+
+<span class="hljs-built_in">// console.log(innerVariable); Acest lucru va eșua </span>
+ </code></pre>
+        <h2 id="par-metros">Parametri</h2>
+        <p>
+          Putem transmite orice date arbitrare funcției noastre folosind
+          parametri (numiți și argumente ale funcției). Două noi moduri de
+          declarare a parametrilor au fost introduse în ES6:
+        </p>
+        <ul>
+          <li>
+            <strong>Parametrii impliciți</strong> -&gt; Acestea vă permit să
+            declarați o valoare implicită în cazul în care nu este transmisă
+            nicio valoare în apelul funcției.
+          </li>
+          <li>
+            <strong>Parametrii de odihnă</strong> -&gt; Permite reprezentarea
+            unui număr nedefinit de parametri.
+          </li>
+        </ul>
+        <pre><code class="lang-javascript"><span class="hljs-comment">// parametru normal</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span><span class="hljs-params">(a, b)</span> </span>{
+  b = b ?? <span class="hljs-number">1</span>; <span class="hljs-comment">// Operator null</span>
+
+  <span class="hljs-keyword">return</span> a * b;
+}
+console.log(multiply(<span class="hljs-number">5</span>)); <span class="hljs-comment">// 5</span>
+
+<span class="hljs-comment">// parametru implicit</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span><span class="hljs-params">(a, b = 1)</span> </span>{
+  <span class="hljs-keyword">return</span> a * b;
+}
+
+console.log(multiply(<span class="hljs-number">5</span>)); <span class="hljs-comment">// 5</span>
+
+<span class="hljs-comment">// parametru de odihnă</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span><span class="hljs-params">(multiplier, <span class="hljs-rest_arg">...theArgs</span>)</span> </span>{
+  <span class="hljs-keyword">return</span> theArgs.map(x =&gt; multiplier * x);
+}
+
+<span class="hljs-keyword">var</span> arr = multiply(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);
+console.log(arr); <span class="hljs-comment">// [2, 4, 6]</span>
+</code></pre>
+        <h2 id="valores-de-retorno">Valori returnate</h2>
+        <p>
+          O funcție poate returna o valoare ca rezultat al apelului său. L-am
+          văzut deja în funcția anterioară:
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-comment">// parametru normal</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span>(<span class="hljs-params">a, b</span>) </span>{
+  b = b ?? <span class="hljs-number">1</span>; <span class="hljs-comment">// Operator null</span>
+
+  <span class="hljs-keyword">return</span> a * b;
+}
+<span class="hljs-built_in">console</span>.log(multiply(<span class="hljs-number">5</span>)); <span class="hljs-comment">// 5</span>
+</code></pre>
+        <p>
+          Cuvântul cheie <code>return</code> poate apărea în orice punct al
+          funcției. În momentul în care este executată, funcția se oprește și
+          valoarea este returnată în apelul de cod. Dar este posibil să fi
+          declarat <code>return</code> de mai multe ori:
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-comment">// parametru normal</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span>(<span class="hljs-params">a, b</span>) </span>{
+  <span class="hljs-keyword">if</span>(b !== <span class="hljs-literal">undefined</span>) {
+    <span class="hljs-keyword">return</span> a * b;
+  } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  }
+}
+<span class="hljs-built_in">console</span>.log(multiply(<span class="hljs-number">5</span>)); <span class="hljs-comment">// 0</span>
+</code></pre>
+        <p>
+          Este posibil să apelați
+          <code>return</code> fără a returna o valoare, caz în care este
+          returnat <code>undefined</code>:
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">returnNothing</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> }
+
+<span class="hljs-built_in">console</span>.log(returnNothing() === <span class="hljs-literal">undefined</span>);
+</code></pre>
+
+        <h2 id="estilo">Stil</h2>
+        <p>
+          Dacă doriți să cunoașteți regulile de stil pentru funcții, puteți
+          accesa
+          <a
+            href="https://developer.mozilla.org/en-US/docs/MDN/Guidelines/Code_guidelines/JavaScript#functions_and_objects"
+            target="_blank"
+            >ghidul de stil MDN</a
+          >.
+        </p>
+        <a class="back-button" href="/beginner/9_obiecte/index.html"
+          >Următoarea pagină &gt;</a
+        >
+      </div>
+    </div>
+    <script src="../../prism.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

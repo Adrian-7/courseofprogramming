@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f2f6ff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#2B2830"
+    />
+    <title>Objetos</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../prism.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="section">
+        <a class="back-button" href="/beginner/index.html"> Înapoi</a>
+        <h1>Obiecte</h1>
+        <p class="caption">Obiecte și prototipuri</p>
+        <hr class="separator" />
+
+        <p>
+          Obiectele sunt un alt tip de date pe care l-am menționat deja în
+          <a href="/beginner/4_tipos_datos/index.html">secțiunea 4</a>. Spre
+          deosebire de tipurile primitive, un obiect poate stoca colecții de
+          date cu indici și entități mai complexe.
+        </p>
+        <p>
+          Obiectele din JavaScript se deosebesc puțin de alte limbaje de
+          programare, fiind un limbaj
+          <strong>bazat pe prototipuri</strong> și nu pur orientat pe obiecte,
+          în scurt timp vom vedea ce înseamna asta.
+        </p>
+        <h2 id="definici-n">Definiție</h2>
+        <p>
+          Un obiect este declarat folosind paranteze <code>{}</code>, dacă facem
+          o declarație literală, sau cu constructorul <code>Object</code>.
+          Obiectele stochează proprietăți, care sunt un tuplu
+          <strong>cheie:valoare</strong>, unde cheia este un
+          <strong>șir</strong> și valoarea poate fi
+          <strong>de orice alt tip</strong>.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-comment">// Declararea obiectelor</span>
+<span class="hljs-keyword">let</span> student = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();
+<span class="hljs-keyword">let</span> user = {};
+<span class="hljs-keyword">let</span> me = {<span class="hljs-attr">name</span>: <span class="hljs-string">"Daniel"</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">27</span>};
+</code></pre>
+        <h2 id="propiedades">Proprietăți</h2>
+        <p>
+          După cum puteți vedea, puteți crea un obiect cu o declarație literală
+          adăugând imediat proprietăți, aceste proprietăți vor stoca o valoare
+          și pot fi accesate folosind sintaxa `object.property``.
+        </p>
+        <img
+          class="container-image"
+          src="/meta/0_14_objects.png"
+          alt="Objeto en JavaScript"
+        />
+        <pre><code class="lang-javascript"><span class="hljs-comment">// Accesarea proprietăților</span>
+console.<span class="hljs-built_in">log</span>(me.<span class="hljs-built_in">name</span>);
+console.<span class="hljs-built_in">log</span>(me.age);
+</code></pre>
+        <p>
+          Pentru a crea o nouă proprietate asupra obiectului, trebuie doar să
+          facem apelul la obiect și să adăugăm valoarea cu proprietatea.
+        </p>
+        <pre><code class="lang-javascript">// Crearea proprietăților
+me.profession = <span class="hljs-string">"Full Stack"</span><span class="hljs-comment">;</span>
+console.log(me)<span class="hljs-comment">;</span>
+</code></pre>
+        <p>
+          După cum puteți vedea, proprietățile pot fi de mai multe tipuri și
+          deoarece nu există anumite operațiuni pentru accesul, crearea (cum am
+          văzut) și eliminarea acestora.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-comment">// Ștergerea proprietăților</span>
+<span class="hljs-keyword">delete</span> me.profession;
+</code></pre>
+        <p>
+          Pe lângă aceasta, proprietățile pot fi o combinație de cuvinte, deși
+          personal nu recomand să le folosești deoarece poate duce la mai multe
+          probleme.
+        </p>
+        <pre><code class="lang-javascript">// multiword <span class="hljs-built_in">properties</span>
+
+<span class="hljs-built_in">let</span> multiword = {
+    <span class="hljs-string">"new variable"</span>: <span class="hljs-string">"Hello world"</span>
+}
+
+// multiword.<span class="hljs-built_in">new</span> variable // Access <span class="hljs-built_in">error</span>
+console.<span class="hljs-built_in">log</span>(multiword[<span class="hljs-string">"new variable"</span>]);
+
+multiword[<span class="hljs-string">"other variable"</span>] = <span class="hljs-string">"I'm Daniel"</span>;
+
+console.<span class="hljs-built_in">log</span>(multiword);
+</code></pre>
+        <h2 id="orientaci-n-a-prototipos">Orientarea prototipului</h2>
+        <p>
+          După cum am menționat anterior, JavaScript este un
+          <strong> limbaj orientat spre prototip</strong>. Aceasta înseamnă că
+          proprietățile și metodele obiectelor pot fi partajate între obiecte
+          generalizate care au capacitatea de a fi clonate și extinse.
+        </p>
+        <p>
+          Diferă de alte <strong>limbaje bazate pe clase</strong> prin faptul că
+          clasele nu sunt planurile care definesc construcția obiectelor, ci mai
+          degrabă un obiect este definit și se poate extinde la alte obiecte
+          prin proprietățile sale.
+        </p>
+        <img
+          class="container-image-vertical"
+          src="/meta/0_15_inheritance.png"
+          alt="Herencia JavaScript"
+        />
+        <p>
+          Vorbind mai clar, în <strong>moștenirea clasică</strong>, un
+          programator scrie o clasă, care definește un obiect. Mai multe obiecte
+          pot fi instanțiate de aceeași clasă, așa că aveți cod definit o
+          singură dată care descrie diferite obiecte dintr-un program. Clasele
+          pot fi apoi organizate în ierarhii pentru reutilizarea codului.
+        </p>
+        <p>
+          În <strong>moștenirea prin prototipare</strong>, obiectele
+          <strong>moștenesc direct</strong> de la alte obiecte. Toată
+          abstractizarea claselor dispare. Reutilizarea codului și ierarhia se
+          realizează printr-o legătură către obiecte extinse. Când cerem o
+          proprietate asupra unui obiect, acesta va urma această ierarhie în sus
+          până când va găsi obiectul care a definit acea proprietate în primă
+          instanță.
+        </p>
+        <p>
+          Putem obține prototipurile unui obiect folosind metoda
+          `Object.getPrototypeOf()``
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-comment">// Obțineți proprietăți de la obiect</span>
+console.<span class="hljs-built_in">log</span>(Object.getPrototypeOf(me));
+console.<span class="hljs-built_in">log</span>(me.__proto__)
+</code></pre>
+        <p>Dacă vrem, putem moșteni proprietățile unui obiect prin altul.</p>
+        <pre><code class="lang-javascript"><span class="hljs-comment">// Moștenirea obiectelor</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"+++++ creating vehicle +++++++++"</span>);
+
+<span class="hljs-keyword">let</span> vehicle = {
+    <span class="hljs-attr">tires</span>: <span class="hljs-number">4</span>,
+    <span class="hljs-attr">start</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Starting engine..."</span>);
+        console.log(vehicle.tires);
+    }
+}
+
+vehicle.start();
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"+++++ creating car +++++++++"</span>);
+
+<span class="hljs-keyword">let</span> car = <span class="hljs-built_in">Object</span>.create(vehicle);
+
+car.start();
+
+car.stop = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Stop the engine..."</span>);
+}
+
+<span class="hljs-built_in">console</span>.log(vehicle);
+<span class="hljs-built_in">console</span>.log(car);
+</code></pre>
+        <p>
+          În secțiunea avansată vom vedea ce clase sunt de fapt în JavaScript și
+          cum funcționează ele în profunzime, deoarece poate crea multă confuzie
+          dacă aveți cunoștințe anterioare despre alte limbaje de programare.
+        </p>
+
+        <h2 id="desestructuraci-n-de-objetos">Destructurarea obiectelor</h2>
+        <p>
+          Nu putem părăsi această secțiune fără a cunoaște conceptul de
+          <strong>destructurare a obiectelor</strong> în JavaScript, deoarece va
+          fi destul de comun la importarea
+          <strong>bibliotecilor și pachetelor</strong>.
+        </p>
+        <p>
+          Această caracteristică este foarte utilă și destul de populară și,
+          practic, vă permite să accesați
+          <strong>proprietățile obiectelor</strong> fără a fi nevoie să le
+          apelați în mod constant. iti dau un exemplu. Această caracteristică
+          este foarte utilă și destul de populară și, practic, vă permite să
+          accesați proprietățile obiectelor fără a fi nevoie să le apelați în
+          mod constant. iti dau un exemplu.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-attribute">let person</span> = {
+    name: <span class="hljs-string">'Daniel'</span>,
+    age: 25,
+    nationality: <span class="hljs-string">'moldavian'</span>
+};
+</code></pre>
+        <p>
+          Pentru a accesa proprietățile acestui obiect, putem crea câteva
+          variabile noi și alocați proprietățile.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-attribute">let nameNormal</span> = person.name;
+<span class="hljs-attribute">let nationalityNormal</span> = person,nationality;
+</code></pre>
+        <p>
+          Până acum, putem accesa proprietățile pe care ni le dorim într-un mod
+          simplu. Dar din punct de vedere structural, dacă trebuie să atribuim
+          <strong>n</strong> proprietăți, va trebui să repetăm ​​procesul de
+          <strong>n</strong> ori. Aici intervine destructurarea obiectelor.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-comment">// 1. Proprietate la variabilă</span>
+<span class="hljs-keyword">const</span> { age } = person;
+console.<span class="hljs-built_in">log</span>(age);
+
+<span class="hljs-comment">// 2. Proprietăți multiple</span>
+<span class="hljs-keyword">const</span> { name, nationality } = person;
+console.<span class="hljs-built_in">log</span>(name);
+console.<span class="hljs-built_in">log</span>(nationality);
+
+<span class="hljs-comment">// 3. Destructurare greșită</span>
+<span class="hljs-keyword">const</span> { invented } = person;
+console.<span class="hljs-built_in">log</span>(invented);
+
+<span class="hljs-comment">// 4. Valoare implicită</span>
+<span class="hljs-keyword">const</span> { <span class="hljs-keyword">default</span> = <span class="hljs-string">"I have a value! "</span> } = person;
+
+<span class="hljs-comment">// 5. Atribuire nume</span>
+<span class="hljs-keyword">const</span> { age: agePerson } = person;
+console.<span class="hljs-built_in">log</span>(agePerson);
+</code></pre>
+
+        <h2 id="estilo">Stil</h2>
+        <p>
+          Pentru a vă extinde cunoștințele despre ghidurile de stil pentru
+          obiecte în JavaScript, puteți accesa
+          <a
+            href="https://developer.mozilla.org/en-US/docs/MDN/Guidelines/Code_guidelines/JavaScript#functions_and_objects"
+            target="_blank"
+            >ghidul de stil MDN</a
+          >.
+        </p>
+        <a class="back-button" href="/test/index.html">Test Final &gt;</a>
+      </div>
+    </div>
+    <script src="../../prism.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f2f6ff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#2B2830"
+    />
+    <title>Condiționale</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../prism.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="section">
+        <a class="back-button" href="/beginner/index.html"> Înapoi</a>
+        <h1>Condiționale</h1>
+        <p class="caption">Operații condiționate în JavaScript</p>
+        <hr class="separator" />
+
+        <p>
+          La cel mai elementar nivel, un program nu este altceva decât o
+          execuție secvențială a instrucțiunilor. Această execuție are un flux
+          predefinit pe care dezvoltatorul va dori să îl controleze cu diverse
+          tehnici. Există momente când trebuie executate diferite acțiuni în
+          funcție de condiții diferite. Pentru aceasta avem
+          <strong>decizii condiționale</strong> care să execute deliberate
+          instrucțiuni dependente de o condiție. Această condiție se reduce la
+          un element <strong>boolean</strong> care este să spună
+          <strong>true</strong> sau <strong>false</strong>.
+        </p>
+        <img
+          class="container-image"
+          src="/meta/0_11_conditional.png"
+          alt="Conditional Flow"
+        />
+        <p>JavaScript are două tipuri de sintaxă:</p>
+        <h2 id="palabra-reservada-if-">Cuvântul rezervat &#39;If&#39;</h2>
+        <p>
+          Cuvântul cheie <code>if(...)</code> evaluează o condiție inclusă în
+          paranteze, iar dacă rezultatul este <code>true</code>, execută o
+          bucată de cod.
+        </p>
+        <pre><code class="lang-javascript">let counter = 5
+if(counter == 5) {
+    console.log("Am ajuns la 5")
+}
+</code></pre>
+
+        <p>
+          Dacă ne întoarcem la
+          <a href="/beginner/4_tipuri_date/index.html" target="_blank"
+            >definiția booleanului</a
+          >, putem vedea că există anumite tipuri care returnează
+          <code>false</code> atunci când sunt evaluate, în timp ce celelalte vor
+          returna <code>true</code>.
+        </p>
+        <h3 id="if-else">If ... else</h3>
+        <p>
+          Putem adăuga una <strong>sau</strong> mai multe clauze în blocul
+          nostru condiționat pentru a executa condiția care este adevărată,
+          aceste execuții vor fi evaluate în cascadă și vor executa toate
+          condițiile.
+        </p>
+
+        <pre><code class="lang-javascript">if(counter == 6) {
+    print("Am ajuns la 6");
+    console.log("Salut");
+} else {
+    console.log("Mai avem ceva");
+}
+</code></pre>
+
+        <p>Acesta este motivul pentru care putem cuibări mai multe condiții</p>
+
+        <pre><code class="lang-javascript">counter += 1
+
+if(counter == 1){
+    console.log("Am ajuns la 1");
+} else if(counter == 2){
+    console.log("Am ajuns la 2");
+} else if(counter == 3){
+    console.log("Am ajuns la 3");
+} else if(counter == 4){
+    console.log("Am ajuns la 4");
+} else if(counter == 5){
+    console.log("Am ajuns la 5");
+} else if(counter == 6){
+    console.log("Am ajuns la 6");
+} else {
+    console.log("Avem mai mult decât atât");
+}
+</code></pre>
+        <a class="back-button" href="/beginner/7_bucle_iteratii/index.html"
+          >Următoarea pagină &gt;</a
+        >
+      </div>
+    </div>
+    <script src="../../prism.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

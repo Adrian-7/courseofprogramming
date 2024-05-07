@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f2f6ff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#2B2830"
+    />
+    <title>Variabile</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../prism.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="section">
+        <a class="back-button" href="/beginner/index.html"> Înapoi</a>
+        <h1>Variabile</h1>
+        <p class="caption">Stocați valori în JavaScript</p>
+        <hr class="separator" />
+
+        <p>
+          O variabilă este un container pentru stocarea valorilor. În mod
+          tradițional, acest lucru a fost făcut cu cuvântul rezervat
+          <code>var</code>, dar ES6 a introdus două cuvinte noi rezervate,
+          <code>const</code> și <code>let</code>.
+        </p>
+        <p>Următorul cod arată cum să creați o nouă variabilă:</p>
+        <pre><code class="lang-javascript"><span class="hljs-keyword">let</span> <span class="hljs-keyword">variable</span>;
+</code></pre>
+        <p>
+          O variabilă poate stoca valori, pentru aceasta folosim operatorul de
+          atribuire <code>=</code>:
+        </p>
+        <pre><code class="lang-javascript">var firstVar = <span class="hljs-string">"Hello World"</span><span class="hljs-comment">;</span>
+let secondVar = <span class="hljs-string">"I 'm Heisenberg"</span><span class="hljs-comment">;</span>
+const ID_PERSON = <span class="hljs-string">"28934289"</span><span class="hljs-comment">;</span>
+
+console.log(firstVar)<span class="hljs-comment">;</span>
+console.log(secondVar)<span class="hljs-comment">;</span>
+console.log(ID_PERSON)<span class="hljs-comment">;</span>
+</code></pre>
+
+        <p>
+          În exemplul de mai sus, șirul este stocat într-un spațiu de memorie
+          indicând variabila <code>firstVariable</code>, astfel, putem accesați
+          această valoare ori de câte ori facem referință la variabilă.
+        </p>
+        <br />
+        <p>
+          Există multe moduri de a declara o variabilă, putem face declarație și
+          atribuire pe aceeași linie, declara multiplu variabile în același timp
+          (deși nu este foarte recomandat), folosind stilul
+          &quot;comma-first&quot;...
+        </p>
+        <pre><code class="lang-javascript">// declarare și atribuire
+<span class="hljs-keyword">let</span> <span class="hljs-attr">firstVariable</span> = <span class="hljs-string">"Salut Lume"</span>;
+
+// declarație pe aceeași linie
+<span class="hljs-keyword">let</span> <span class="hljs-attr">prenume</span> = 'Victoria', <span class="hljs-attr">nume</span> = 'Chetraru', <span class="hljs-attr">varsta</span> = <span class="hljs-number">27</span>;
+
+// declararea <span class="hljs-string">"coma first"</span>
+<span class="hljs-keyword">let</span> <span class="hljs-attr">prenume</span> = 'Victoria'
+    , <span class="hljs-attr">nume</span> = 'Chetraru'
+    , <span class="hljs-attr">varsta</span> = <span class="hljs-number">27</span>;
+</code></pre>
+        <p>
+          Toate aceste forme fac, teoretic, același lucru, utilizarea fiecăreia
+          dintre aceste stiluri vor depinde de <strong>ghidul de stil</strong>
+          de urmat pentru proiect.
+        </p>
+        <h2 id="declaraci-n-de-variables">Declararea variabilelor</h2>
+        <p>
+          Există două limitări importante în declararea variabilelor în
+          JavaScript:
+        </p>
+        <ol>
+          <li>
+            Numele poate avea doar litere, cifre sau simboluri
+            <code>$</code> și <code>_</code>.
+          </li>
+          <li>Primul caracter nu poate fi o cifră.</li>
+        </ol>
+        <p>
+          În plus, JavaScript folosește
+          <a href="https://developer.mozilla.org/en-US/docs/Glossary/Camel_case"
+            >CamelCase</a
+          >
+          în declarația variabilă, așa că, deși unele nume sunt permise, acestea
+          nu sunt recomandate de ghidul de stil.
+        </p>
+        <p>Astfel, am avea aceste exemple valide și invalide:</p>
+        <pre><code class="lang-javascript"><span class="hljs-comment">// Variabile valide</span>
+
+<span class="hljs-keyword">let</span> variableCamelCase;
+<span class="hljs-keyword">let</span> variable123;
+
+<span class="hljs-keyword">let</span> $ = <span class="hljs-number">1</span>; <span class="hljs-comment">// Este valabil si declararea $</span>
+<span class="hljs-keyword">let</span> _ = <span class="hljs-number">1</span>; <span class="hljs-comment">// La fel ca și cum ai declara ca variabilă _</span>
+console.<span class="hljs-keyword">log</span>($ + _); <span class="hljs-comment">// Această sumă poate fi făcută</span>
+
+<span class="hljs-comment">// Variabile nevalide</span>
+<span class="hljs-keyword">let</span> <span class="hljs-built_in">invalid</span><span class="hljs-params">-variable</span>;
+<span class="hljs-keyword">let</span> <span class="hljs-number">3</span>invalidNumber;
+
+<span class="hljs-comment">// Variabile valide, dar nu recomandate</span>
+
+<span class="hljs-keyword">let</span> snake_case;
+<span class="hljs-keyword">let</span> allnamesinsmallcase;
+</code></pre>
+        <p>
+          Acum să vorbim despre diferențele dintre <strong>var</strong>,
+          <strong>let</strong> și <strong>const</strong> deoarece la prima
+          vedere par să servească aceluiași scop, dar există anumite detalii
+          care le fac complet diferite.
+        </p>
+        <h2 id="var-vs-let">Var vs Let</h2>
+        <p>
+          <code>var</code> și <code>let</code> sunt cele două cuvinte rezervate
+          în JavaScript pentru a declara variabile.<code>let</code> a fost
+          introdus în <strong>ES6</strong> pentru a rezolva mai multe dintre
+          confuziile generate de <code>var</code> cu comportamentul său, ceea ce
+          a dus la multe erori.
+        </p>
+        <h3 id="reglas-de-scope">Reguli de aplicare</h3>
+        <p>
+          Cea mai mare diferență are de-a face cu
+          <strong>regulile de aplicare</strong>, vom vedea în profunzime
+          conceptul de aplicare mai târziu, practic este mediul încapsulat în
+          care se execută o bucată de cod. Variabilele declarate cu
+          <code>var</code> sunt delimitate de
+          <strong>corpul funcției</strong> (sfera funcției) în timp ce
+          <code>let</code>este mărginit de blocul care îl înconjoară, marcat de
+          <code>{ }</code> (sfera blocului)
+        </p>
+
+        <pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">scopeRules</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> hello = <span class="hljs-string">"Hello"</span>;
+    <span class="hljs-keyword">let</span> world = <span class="hljs-string">"World"</span>;
+
+    <span class="hljs-built_in">console</span>.log(hello, world); <span class="hljs-comment">// Hello World</span>
+
+    {
+      <span class="hljs-keyword">var</span> name = <span class="hljs-string">"Andrei"</span>
+      <span class="hljs-keyword">let</span> surname = <span class="hljs-string">"Moraru"</span>;
+      <span class="hljs-built_in">console</span>.log(name, surname); <span class="hljs-comment">// Andrei Moraru</span>
+    }
+
+    <span class="hljs-built_in">console</span>.log(name); <span class="hljs-comment">// Andrei</span>
+    <span class="hljs-comment">//console.log(surname); // ReferenceError</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Reference Error"</span>);
+}
+
+scopeRules()
+</code></pre>
+        <h3 id="hoisting">Hoisting</h3>
+        <p>
+          Ridicarea este unul dintre cei mai confuzi termeni din JavaScript,
+          practic am vorbit deja despre JavaScript ca fiind un limbaj
+          interpretat care trece prin linie cu linie și execută ceea ce merge
+          găsirea, dar realitatea este că merge linie cu linie
+          <strong>de două ori</strong> programul, o dată pentru a rezerva
+          variabile și alte lucruri, iar al doilea pentru a executa codul.
+          <strong>Hoisting</strong> este procesul de rezervare a spațiului de
+          memorie pentru variabile și funcții.
+        </p>
+        <br />
+        <p>
+          În JavaScript, <code>var</code> face variabila
+          <code>ridicată</code> (inițializat înainte de a fi declarat cu
+          <code>nedefinit</code>), în timp ce <code>let</code> va lansa un
+          <strong>ReferenceError</strong> dacă este apelat înainte de a fi
+          declarat.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-comment">// hoisted</span>
+<span class="hljs-built_in">console</span>.log(hoisted);
+<span class="hljs-keyword">var</span> hoisted = <span class="hljs-string">"hoisted"</span>;
+<span class="hljs-built_in">console</span>.log(hoisted)
+
+<span class="hljs-comment">// not hoisted</span>
+<span class="hljs-comment">//console.log(notHoisted); ReferenceError</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Reference Error"</span>);
+<span class="hljs-keyword">let</span> notHoisted = <span class="hljs-string">"not hoisted"</span>;
+<span class="hljs-built_in">console</span>.log(notHoisted);
+</code></pre>
+        <h3 id="propiedad-global">Proprietate globală</h3>
+        <p>
+          În
+          <a href="/advanced/2_global_namespace/index.html">contextul global</a>
+          <code>var</code> va crea o proprietate pe obiectul global, în timp ce
+          <code>let</code> nu.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> globalVar = <span class="hljs-string">"Global"</span>;
+<span class="hljs-keyword">let</span> notGlobalVar = <span class="hljs-string">"Not global"</span>;
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">window</span>.globalVar);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">window</span>.notglobalVar);
+</code></pre>
+        <h3 id="re-declaraci-n">Re-Declarație</h3>
+        <p>
+          În <strong>modul strict,</strong> <code>var</code> permite
+          re-declararea variabilelor în timp ce <code>let</code> va genera o
+          <strong>SintaxError</strong>
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-meta">'use strict'</span>;
+<span class="hljs-keyword">var</span> redeclare = <span class="hljs-string">"hello"</span>;
+<span class="hljs-keyword">var</span> redeclare = <span class="hljs-string">"world"</span>; 
+
+<span class="hljs-keyword">let</span> notRedeclare = <span class="hljs-string">"hello"</span>; 
+<span class="hljs-comment">//let notRedeclare = "bar2"; </span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Sintax Error"</span>);
+</code></pre>
+        <h2 id="const">Const</h2>
+        <p>
+          Constantele sunt variabile care nu își pot schimba valoarea atunci
+          când sunt atribuite. Acest tip de declarație este foarte util atunci
+          când valoarea atribuită nu trebuie modificată în nicio circumstanță în
+          timpul execuției, cum ar fi constante matematice, culori sau alte
+          valori fixe.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> <span class="hljs-built_in">PI</span> = <span class="hljs-number">3.14</span>;
+<span class="hljs-keyword">const</span> COLOR_BLUE = <span class="hljs-string">"00F"</span>;
+<span class="hljs-keyword">const</span> COUNTRY_CODE_MOLDOVA = <span class="hljs-string">"MD"</span>;
+</code></pre>
+        <h3 id="gu-a-de-estilos">Ghid stilistic</h3>
+        <p>
+          Deși variabilele din JavaScript urmează stilul CamelCase, utilizarea
+          majusculelor pentru declararea constantelor este larg răspândită,
+          folosind litere mici pentru a separa cuvintele. Puteți consulta stilul
+          declarației variabilelor în
+          <a
+            href="https://developer.mozilla.org/en-US/docs/MDN/Guidelines/Code_guidelines/JavaScript#variables"
+            >Ghid de stil MDN</a
+          >.
+        </p>
+        <a class="back-button" href="/beginner/4_tipuri_date/index.html"
+          >Următoarea pagină &gt;</a
+        >
+      </div>
+    </div>
+
+    <script src="../../prism.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

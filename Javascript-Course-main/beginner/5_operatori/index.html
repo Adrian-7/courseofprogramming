@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f2f6ff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#2B2830"
+    />
+    <title>Operadores</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../prism.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="section">
+        <a class="back-button" href="/beginner/index.html"> Înapoi</a>
+        <h1>Operatori</h1>
+        <p class="caption">Operații în JavaScript</p>
+        <hr class="separator" />
+
+        <p>
+          Înainte de a enumera diferiții operatori, există o terminologie pe
+          care trebuie să o acoperim:
+        </p>
+        <ul>
+          <li>
+            <p>
+              Un <strong>operand</strong> este elementul căruia i se aplică
+              operatorii. De exemplu, într-o sumă <code>2 + 3</code>, operatorul
+              din stânga este <code>2</code>, operatorul din dreapta este
+              <code>3</code> și operandul este <code>+</code>
+            </p>
+          </li>
+          <li>
+            <p>
+              Un <strong>operator</strong> este unar dacă are un singur
+              operator, cum ar fi negația <code>-3</code> în timp ce este binar
+              dacă are doi operanzi, <code>2 + 3</code>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Precedența</strong> operatorilor indică ordinea de
+              operare. Dacă în aceeași linie de execuție găsim diferiți
+              operatori și cuvinte rezervate, JavaScript le va executa în
+              ordinea indicată în
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table"
+                target="_blank"
+                >această listă</a
+              >.
+            </p>
+          </li>
+        </ul>
+        <h2 id="operadores-aritm-ticos">Operatori aritmetici</h2>
+        <p>
+          Operatorii aritmetici modifică valoarea unei variabile. Acestea
+          urmează ordinea de prioritate menționată mai sus.
+        </p>
+        <pre><code class="lang-javascript">// Operatori aritmetici
+let a = 30;
+let b = 50;
+
+// Adunarea
+let add = a + b;
+console.log(`add: ${add}`)
+
+// Scăderea
+let sub = a - b
+console.log(`sub: ${sub}`)
+
+// Înmulțirea
+let mul = a * b
+console.log(`mul: ${mul}`)
+
+// Împărțirea
+let div = a / b
+console.log(`div: ${div}`)
+
+// Modulul
+let modd = b % a
+console.log(`modd: ${modd}`)
+
+// Exponentul
+let exp = a**b
+console.log(`exp: ${exp}`)</code></pre>
+        <h2 id="operadores-de-comparaci-n">Operatori de comparare</h2>
+        <p>
+          Ei compară valorile din ambele părți ale tranzacției și decid relația
+          dintre cele două.
+        </p>
+        <pre><code class="lang-javascript">// Operatori de comparare
+a = 30;
+b = 50;
+
+// Egalitate
+let eq = a == b;
+console.log(`eq: ${eq}`);
+
+let eq2 = a == c;
+console.log(`eq2: ${eq2}`);
+
+// Egalitate + tip
+let eq3 = a === c;
+console.log(`eq3: ${eq3}`);
+
+// Inegalitate
+let ieq = a != b;
+console.log(`ieq: ${ieq}`);
+
+let ieq2 = a != c;
+console.log(`ieq2: ${ieq2}`);
+
+// Inegalitate + tip
+let ieq = a !== b;
+console.log(`ieq: ${ieq}`);
+
+// Mai mare
+let gt = a &gt b;
+console.log(`gt: ${gt}`);
+
+// Mai mic
+let ls = a &lt b;
+console.log(`ls: ${ls}`);
+
+// Mai mare sau egal
+let gteq = a &gt= b;
+console.log(`gteq: ${gteq}`);
+
+// Mai mic sau egal
+let lseq = a &lt= b;
+console.log(`lseq: ${lseq}`);
+
+console.log(30 &gt 30);
+console.log(30 &gt= 30);</code></pre>
+
+        <h2 id="operadores-de-asignaci-n">Operatori de atribuire</h2>
+        <p>
+          Am văzut deja acești operatori de mai multe ori când am declarat
+          variabile, aici vom vedea câteva dintre proprietățile lor.
+        </p>
+        <pre><code class="lang-javascript">// Operatori de atribuire
+a = 30;
+b = 50;
+
+// Atribuire (=)
+let c = a + b;
+console.log(c);
+
+// Adăugare cu atribuire
+c = 60;
+c += a;
+console.log(c);
+
+// Scăderea cu atribuire
+c = 60;
+c -= a;
+console.log(c);
+
+// Înmulțire cu atribuire
+c = 60;
+c *= a;
+console.log(c);
+
+// Împărțirea cu atribuire
+c = 60;
+c /= a;
+console.log(c);</code></pre>
+        <h2 id="operadores-l-gicos">Operatori logici</h2>
+        <p>
+          Acești operatori sunt utilizați în cadrul controalelor de flux pe care
+          le vom vedea în secțiunea următoare. Toate returnează un tip logic
+          (adevărat sau fals) atunci când operația este efectuată.
+        </p>
+        <pre><code class="lang-javascript">// Operatori logici
+a = 30;
+b = 50;
+c = [20, 30, 70, 80];
+let at = true;
+let bf = false;
+
+// AND operator
+console.log(at && bf);
+
+// OR operator
+console.log(at || bf);
+
+// NOT operator
+console.log(!at);
+
+console.log("------------")
+
+// Membership
+console.log(a in c);</code></pre>
+        <a class="back-button" href="/beginner/6_condiții/index.html"
+          >Următoarea pagină &gt;</a
+        >
+      </div>
+    </div>
+    <script src="../../prism.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

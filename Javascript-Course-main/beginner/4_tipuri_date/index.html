@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f2f6ff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#2B2830"
+    />
+    <title>Tipuri de Date</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../prism.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="section">
+        <a class="back-button" href="/beginner/index.html"> Înapoi</a>
+        <h1>Tipuri de Date</h1>
+        <p class="caption">Clasificarea tipului în JavaScript</p>
+        <hr class="separator" />
+
+        <h2 id="introducci-n">Introducere</h2>
+        <p>
+          JavaScript are două tipuri de variabile: tipuri primitive și tipuri de
+          referință. De fiecare dată când este creată o variabilă, o anumită
+          dimensiune de memorie este rezervată. În plus, atunci când o variabilă
+          este copiată, valoarea acesteia din memorie este, de asemenea,
+          copiată. Când treceți o variabilă unei funcții, creați și o copie a
+          variabilei
+        </p>
+        <h2 id="tipos-primitivos">Tipuri primitive</h2>
+        <p>
+          JavaScript are 6 tipuri de date primitive:
+          <code>string, number, undefined, null, boolean și symbol</code>.
+          Aceste date pot stoca o singură valoare la un moment dat, deci sunt
+          imutabile.
+          <strong
+            >Puteți modifica valoarea unei variabile care stochează o primitivă
+            numai prin alocarea unei noi valori</strong
+          >.
+        </p>
+        <h3 id="boolean">Boolean</h3>
+        <p>
+          Tipul <b>boolean</b> reprezintă o entitate logică care poate avea două
+          valori: <code>true</code> sau <code>false</code>. Când definiți o
+          variabilă, dacă valoarea este omisă sau este <code>0</code>,
+          <code>-0</code>, <code>null</code>, <code>NaN</code>,
+          <code>undefined</code> sau un șir gol (<code>&quot;&quot;</code>),
+          variabila are valoarea <code>false</code>. În restul cazurilor va avea
+          o valoare de <code>true</code>.
+        </p>
+        <a
+          class="reference"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean"
+          target="_blank"
+          >Referință</a
+        >
+        <pre>
+<code class="language-javascript">// Boolean
+let boolValue = true;</code>
+</pre>
+        <h3 id="null">Null</h3>
+        <p>
+          Tipul <code>null</code> are exact o valoare: <code>null</code>.
+          Reprezintă inexistența sau invaliditatea unei adrese de memorie sau a
+          unui obiect. Este folosit în mod normal în variabilele de referință,
+          deși în JavaScript utilizarea sa principală este primitivă.
+        </p>
+        <a
+          class="reference"
+          href="https://developer.mozilla.org/en-US/docs/Glossary/Null"
+          target="_blank"
+          >Referință</a
+        >
+        <pre>
+<code class="language-javascript">// Null
+let nullValue = null;</code>
+</pre>
+        <h3 id="undefined">Undefined</h3>
+        <p>
+          O variabilă căreia nu i s-a atribuit o valoare are valoarea
+          <code>undefined</code>. Nu trebuie confundat cu <code>null</code>.
+        </p>
+        <a
+          class="reference"
+          href="https://developer.mozilla.org/en-US/docs/Glossary/undefined"
+          target="_blank"
+          >Referință</a
+        >
+        <pre>
+<code class="language-javascript">// Undefined
+let undefinedVal = undefined;</code>
+</pre>
+        <h3 id="number">Number</h3>
+        <p>
+          ECMAScript are două tipuri de numere: <code>number</code> y
+          <code>bigint</code>. Tipul de număr are o precizie de 64 de biți, care
+          variază între -(2^53 − 1) și 2^53 − 1. În plus, valorile reprezentate
+          cu coala flotantă au trei valori simbolice: <code>+Infinity</code>,
+          <code>-Infinity</code> sau <code>NaN</code> (Nu este Număr).
+        </p>
+        <p>
+          Tipul <strong>BigInt</strong> este o primitivă numerică care poate
+          reprezenta numere întregi cu precizie arbitrară. Prin urmare, ele pot
+          reprezenta numere foarte mari pe care altfel <code>number</code>nu
+          poate.
+        </p>
+        <a
+          class="reference"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number"
+          target="_blank"
+          >Referință</a
+        >
+        <a
+          class="reference"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt"
+          target="_blank"
+          >Referință Big Int</a
+        >
+        <pre>
+<code class="language-javascript">// Number
+let numberValue = 10;
+let numBigIntVal = BigInt(9007199254740991);</code>
+</pre>
+        <h3 id="string">String</h3>
+        <p>
+          String este folosit pentru a reprezenta informații textuale. Este un
+          set de &quot;elemente&quot; pe 16 biți fără simbol. Fiecare element
+          din tipul <strong>String</strong> ocupă o poziție.
+          <strong
+            >Primul element este <code>0</code> și nu <code>1</code></strong
+          >
+          din interiorul indexului.
+        </p>
+        <p>
+          <strong
+            >Spre deosebire de alte limbaje precum Python sau C, șirurile din
+            JavaScript sunt imutabile</strong
+          >. Aceasta înseamnă că odată create nu pot fi modificate. Totuși, alte
+          șiruri pot fi create și atribuite aceleiași variabile cu operațiuni
+          precum `String.substr()``
+        </p>
+        <a
+          class="reference"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+          target="_blank"
+          >Referință</a
+        >
+        <pre>
+<code class="language-javascript">//String
+let stringVal = "Hello";
+console.log(stringVal);</code>
+</pre>
+        <h3 id="symbol">Symbol</h3>
+        <p>
+          Un simbol este un tip primitiv care poate fi folosit ca cheie pentru
+          proprietatea unui obiect. În unele limbaje de programare se numesc
+          <strong>atomi</strong>.
+        </p>
+        <a
+          class="reference"
+          href="https://developer.mozilla.org/en-US/docs/Glossary/Symbol"
+          target="_blank"
+          >Referință</a
+        >
+        <pre>
+<code class="language-javascript">// Symbol
+let symVal = Symbol();</code>
+</pre>
+        <h2 id="tipos-por-referencia">Tipuri după referință</h2>
+        <p>
+          Pe de altă parte, există un tip compus sau <code>obiect</code>. Aceste
+          obiecte stochează o referință la un spațiu de memorie în care este
+          stocată valoarea. Acest lucru permite modificarea valorii în timp și
+          stocarea diferitelor valori în același timp.
+        </p>
+
+        <h3 id="objetos">Obiecte</h3>
+        <p>
+          Un obiect este o valoare din memorie referită de un identificator. În
+          JavaScript, obiectele sunt cunoscute ca o colecție de proprietăți.
+          JavaScript este un limbaj orientat spre prototip, în care obiectele
+          stochează proprietăți, care pot fi adăugate sau eliminate. Aceste
+          proprietăți pot fi valori de orice tip, inclusiv alte obiecte,
+          permițând construirea unor structuri complexe de date.
+        </p>
+        <p>
+          Aceste proprietăți pot fi valori de orice tip, inclusiv alte obiecte,
+          permițând construirea unor structuri complexe de date.
+        </p>
+        <a
+          class="reference"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+          target="_blank"
+          >Referință</a
+        >
+        <pre>
+<code class="language-javascript">// Object
+let emptyObject = {};
+let filledObject = {"name": "Lucian", "surname": "Popa"};</code>
+</pre>
+
+        <h3 id="arrays">Arrays(Matrice)</h3>
+        <p>
+          Sunt <code>arrays</code> obiecte în care există o relație între
+          proprietățile cheii întregi și <strong>lungimea</strong> proprietății.
+          În plus, moștenește de la obiectul <code>Array.prototype</code> care
+          adaugă metode de manipulare a datelor cu index precum
+          <code>indexOf</code> sau <code>push</code>.
+        </p>
+        <p>
+          În plus față de matrice, există și alte colecții cu chei care au fost
+          adăugate în ES6, cum ar fi <code>set</code> și
+          <code>weakset</code> care reprezintă seturi și <code>Map</code> și
+          <code>weakmap</code> care reprezintă hărți de valori.
+        </p>
+        <a
+          class="reference"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+          target="_blank"
+          >Referință</a
+        >
+        <pre>
+<code class="language-javascript">// Array
+let filledArray = ["one", "two", "three"];</code>
+</pre>
+
+        <h3 id="funciones">Funcții</h3>
+        <p>
+          Mai târziu vom vedea funcțiile în profunzime, practic tipul de
+          <code>function</code> permite stocarea funcțiilor în variabile,
+          deoarece constructorul de <strong>funcții</strong> este derivat din
+          constructorul <code>Object</code>.
+        </p>
+        <a
+          class="reference"
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function"
+          target="_blank"
+          >Referință</a
+        >
+        <pre>
+<code class="language-javascript">// Function
+let funVale = function() {
+    return "Hello World";
+}</code>
+</pre>
+        <a class="back-button" href="/beginner/5_operatori/index.html"
+          >Următoarea pagină &gt;</a
+        >
+      </div>
+    </div>
+    <script src="../../prism.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

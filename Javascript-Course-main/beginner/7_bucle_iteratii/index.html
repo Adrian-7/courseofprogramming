@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f2f6ff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#2B2830"
+    />
+    <title>Buclă și iterație</title>
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../prism.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="section">
+        <a class="back-button" href="/beginner/index.html"> Înapoi</a>
+        <h1>Buclă și iterație</h1>
+        <p class="caption">Iterații în JavaScript</p>
+        <hr class="separator" />
+
+        <p>
+          Există situații în care este necesar un bloc de instrucțiuni fie
+          executat de un anumit număr de ori, fie pentru a itera între mai multe
+          elemente, creați secvențe noi...
+        </p>
+        <p>
+          Pentru asta există instrucțiuni bucle. În JavaScript există mai multe
+          mecanisme pentru a implementa repetarea codului, variînd unde este
+          plasată evaluarea.
+        </p>
+        <img
+          class="container-image"
+          src="/meta/0_13_loops.png"
+          alt="Example of Loops"
+        />
+        <h2 id="for">For</h2>
+        <p>
+          Bucla <strong>for</strong> este foarte asemănătoare cu buclele din
+          <strong>C/C++</strong> sau <strong>Java</strong>. O buclă for se
+          repetă până când se ajunge la o evaluare <strong>false</strong>.
+          Sintaxa principală este:
+        </p>
+        <pre><code class="lang-pseudocode">for (<span class="hljs-string">[initialExpression]</span>; <span class="hljs-string">[conditionExpression]</span>; <span class="hljs-string">[incrementExpression]</span>)
+  statement
+</code></pre>
+        <p>Fluxul care urmează este următorul:</p>
+        <ol>
+          <li>
+            Expresia inițială
+            <strong>initialExpression</strong> este executată dacă există.
+            Această expresie pornește un numărător, în plus această expresie
+            poate declara variabile.
+          </li>
+          <li>
+            Expresia
+            <strong>conditionExpression</strong> este evaluată, dacă valoarea
+            este <strong>true</strong>, blocul de cod este executat, dacă nu
+            bucla se termină.
+          </li>
+          <li>
+            Blocul de <strong>statement(instrucțiuni)</strong> este executat.
+          </li>
+          <li>
+            Dacă există, se execută <strong>incrementedExpression</strong>
+          </li>
+          <li>Reveniți la <strong>pasul 2</strong></li>
+        </ol>
+        <pre><code class="lang-javascript">for (let i = 0; i &lt; 10; i++) {
+    if (i%2 == 0) {
+      console.log("Este număr par")
+    } else {
+        console.log("Nu este număr par")
+    }
+}</code></pre>
+        <h3 id="for-in">For In</h3>
+        <p>
+          Există un alt tip de buclă care iterează peste o proprietate
+          enumerabilă sau cheile unui obiect. Această sintaxă este foarte utilă
+          pentru trecerea în buclă prin iterabile.
+        </p>
+
+        <pre><code class="lang-javascript">const object = { a: 1, b: 2, c: 3 };
+
+for (const property in object) {
+    console.log(`${property}: ${object[property]}`);
+}</code></pre>
+        <h2 id="while">While</h2>
+        <p>
+          Folosind bucla <strong>while</strong> putem repeta un set de
+          instrucțiuni atâta timp cât o condiție este îndeplinită. Sintaxa este
+          foarte simplă:
+        </p>
+        <pre><code class="lang-pseudocode"><span class="hljs-keyword">while</span> <span class="hljs-comment">(condition)</span>
+  stateme<span class="hljs-symbol">nt</span>
+</code></pre>
+        <p>
+          Când condiția este
+          <strong>false</strong>, bucla este întreruptă și oprește executarea
+          instrucțiunii.
+        </p>
+        <p>
+          <strong
+            >Trebuie să fii foarte atent să nu creezi bucle infinite dacă creezi
+            un contor</strong
+          >
+        </p>
+
+        <pre><code class="lang-javascript">let n = 0;
+let x = 0;
+while (n &lt; 3) {
+    n++;
+    x += n;
+    console.log(x);
+}
+
+// Buclă infinită aveți grijă deoarece n este egal cu 2
+while (n &gt; 2) {
+    n++;
+    x += n;
+    console.log(x);
+}
+</code></pre>
+        <h2 id="do-while">Do...While</h2>
+        <p>
+          Bucla <strong>do..while</strong> este similară cu cea anterioară, doar
+          că mai întâi execută codul și apoi evaluează condiția. Este foarte
+          util dacă vrem să ne asigurăm că expresia este executată cel puțin o
+          dată.
+        </p>
+        <pre><code class="lang-pseudocode"><span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">statement</span>
+<span class="hljs-keyword">while</span> (condition);
+</code></pre>
+
+        <pre><code class="lang-javascript">let i = 0;
+do {
+    i += 1;
+    console.log(i);
+} while (i &lt; 5);
+</code></pre>
+
+        <h2 id="switch">Switch</h2>
+        <p>
+          O instrucțiune
+          <code>switch</code> poate înlocui mai multe verificări
+          <code>if</code>. Oferă o modalitate mai descriptivă de a compara o
+          valoare cu mai multe variante.
+        </p>
+        <pre><code class="lang-pseudocode"><span class="hljs-keyword">switch</span> (<span class="hljs-keyword">condition</span>)
+ <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>
+  <span class="hljs-keyword">break</span>
+ <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>
+  <span class="hljs-keyword">break</span>
+ <span class="hljs-keyword">default</span>
+</code></pre>
+        <p>
+          Operația este următoarea, va evalua starea pe care o prezentăm în
+          cadrul cuvântului
+          <em>cheie</em> <code>switch</code> și va verifica toate cazurile în
+          ordine descrescătoare până îl găsește pe cel corect sau îl execută
+          <code>implicit</code>.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-keyword">let</span> i = <span class="hljs-number">3</span>;
+<span class="hljs-keyword">switch</span> (a) {
+  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+    <span class="hljs-built_in">console</span>.log( <span class="hljs-string">'Prea mic'</span> );
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+    <span class="hljs-built_in">console</span>.log( <span class="hljs-string">'Exact!'</span> );
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+    <span class="hljs-built_in">console</span>.log( <span class="hljs-string">'Prea mare'</span> );
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">default</span>:
+    <span class="hljs-built_in">console</span>.log( <span class="hljs-string">"Nu cunosc astfel de valori"</span> );
+}
+</code></pre>
+        <p>
+          De asemenea, putem grupa propoziții pentru a efectua aceeași acțiune
+          în mai multe cazuri.
+        </p>
+        <pre><code class="lang-javascript"><span class="hljs-keyword">switch</span>(navigator.language) {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"en-US"</span>:
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"en-GB"</span>:
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"en-AU"</span>:
+    console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'Limba engleză'</span>)<span class="hljs-comment">;</span>
+    <span class="hljs-built_in">break</span><span class="hljs-comment">;</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"es-ES"</span>:
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"es-AR"</span>:
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"es-CL"</span>:
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"es-CO"</span>:
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"es-CR"</span>:
+  <span class="hljs-keyword">case</span> <span class="hljs-string">"es-DO"</span>:
+    console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'Limba spaniolă'</span>)<span class="hljs-comment">;</span>
+  <span class="hljs-keyword">default</span>:
+    console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'Nicio limbă identificată'</span>)
+}
+</code></pre>
+        <a class="back-button" href="/beginner/8_functii/index.html"
+          >Următoarea pagină &gt;</a
+        >
+      </div>
+    </div>
+    <script src="../../prism.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
